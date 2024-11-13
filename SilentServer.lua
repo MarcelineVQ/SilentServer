@@ -1,7 +1,6 @@
 -- Name: SilentServer
 -- License: LGPL v2.1
 
--- not starting with ^ because these could be color coded
 local patterns = {
   '^Delete your WDB',
   '^If you want',
@@ -15,6 +14,8 @@ local patterns = {
   '^Welcome to Turtle',
   '^Six years of',
   '^Download the anniversary',
+  '^Adventurers, travelers and',
+  'Vrograg',
   ".- %[%d+-%d+%] started!", -- battleground
 }
 
