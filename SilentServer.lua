@@ -1,5 +1,4 @@
 -- Name: SilentServer
--- License: LGPL v2.1
 
 local patterns = {
   '^Delete your WDB',
@@ -15,6 +14,7 @@ local patterns = {
   '^Six years of',
   '^Download the anniversary',
   '^Adventurers, travelers and',
+  'Everlook Broadcasting',
   'Vrograg',
   ".- %[%d+-%d+%] started!", -- battleground
 }
