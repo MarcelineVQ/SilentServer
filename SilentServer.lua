@@ -14,7 +14,9 @@ local patterns = {
   '^Six years of',
   '^Download the anniversary',
   '^Adventurers, travelers and',
-  'Everlook Broadcasting',
+  'Radio',
+  'Everlook',
+  'Broadcasting',
   'Vrograg',
   ".- %[%d+-%d+%] started!", -- battleground
 }
@@ -57,12 +59,12 @@ end
 
 local orig_ChatFrame_OnEvent = ChatFrame_OnEvent
 ChatFrame_OnEvent = function (event,a2,a3,a4,a5,a6,a7,a8,a9,a10)
-  local msg = arg1
+  local msg = arg1 and string.lower(arg1)
   local from = arg2
 
   if event == "CHAT_MSG_SYSTEM" then
     for _,pattern in patterns do
-      if string.find(msg,pattern) then
+      if string.find(msg,string.lower(pattern)) then
         return false
       end
     end
