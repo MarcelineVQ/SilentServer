@@ -22,7 +22,10 @@ local system_patterns = {
 }
 
 local ignore_npc = {
-  ["Fizzle \"The Sharpened Scissors\""] = true,
+  ["Fizzle \"The Sharpened Scissors\""] = true, -- barber
+  ["Pierre \"Le Coiffeur\" Dufresne"] = true, -- barber
+  ["Tansy Sparkpen"] = true, -- gadgetzan times
+  ["Fara Boltbreaker"] = true, -- gadgetzan times
 }
 
 local SilentServer = CreateFrame("Frame","SilentServer")
