@@ -22,7 +22,7 @@ local system_patterns = {
 }
 
 local ignore_npc = {
-  "Fizzle \"The Sharpened\" Scissors" = true,
+  ["Fizzle \"The Sharpened Scissors\""] = true,
 }
 
 local SilentServer = CreateFrame("Frame","SilentServer")
@@ -80,7 +80,7 @@ ChatFrame_OnEvent = function (event,a2,a3,a4,a5,a6,a7,a8,a9,a10)
     end
     orig_ChatFrame_OnEvent(event,a2,a3,a4,a5,a6,a7,a8,a9,a10)
   elseif event == "CHAT_MSG_MONSTER_YELL" then
-    if ignore_npc[arg2] then
+    if ignore_npc[from] then
       return false
     end
     orig_ChatFrame_OnEvent(event,a2,a3,a4,a5,a6,a7,a8,a9,a10)
