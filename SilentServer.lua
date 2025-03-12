@@ -1,6 +1,6 @@
 -- Name: SilentServer
 
-local patterns = {
+local system_patterns = {
   '^Delete your WDB',
   '^If you want',
   '^Keep up to',
@@ -19,6 +19,10 @@ local patterns = {
   'Broadcasting',
   'Vrograg',
   ".- %[%d+-%d+%] started!", -- battleground
+}
+
+local ignore_npc = {
+  "Fizzle \"The Sharpened\" Scissors" = true,
 }
 
 local SilentServer = CreateFrame("Frame","SilentServer")
@@ -63,7 +67,7 @@ ChatFrame_OnEvent = function (event,a2,a3,a4,a5,a6,a7,a8,a9,a10)
   local from = arg2
 
   if event == "CHAT_MSG_SYSTEM" then
-    for _,pattern in patterns do
+    for _,pattern in system_patterns do
       if string.find(msg,string.lower(pattern)) then
         return false
       end
@@ -72,6 +76,11 @@ ChatFrame_OnEvent = function (event,a2,a3,a4,a5,a6,a7,a8,a9,a10)
   elseif event == "CHAT_MSG_YELL" and SilentServerDB.hellfire then
     if from and UnitName("player") ~= from and
         raid_roster[from] and raid_roster[from].class == "Warlock" then
+      return false
+    end
+    orig_ChatFrame_OnEvent(event,a2,a3,a4,a5,a6,a7,a8,a9,a10)
+  elseif event == "CHAT_MSG_MONSTER_YELL" then
+    if ignore_npc[arg2] then
       return false
     end
     orig_ChatFrame_OnEvent(event,a2,a3,a4,a5,a6,a7,a8,a9,a10)
