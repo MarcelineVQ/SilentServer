@@ -18,6 +18,7 @@ local system_patterns = {
   'Everlook',
   'Broadcasting',
   'Vrograg',
+  'Tavern Talk',
   ".- %[%d+-%d+%] started!", -- battleground
 }
 
