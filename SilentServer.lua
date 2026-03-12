@@ -19,6 +19,11 @@ local system_patterns = {
   'Broadcasting',
   'Vrograg',
   'Tavern Talk',
+  'Sheal',
+  'Easter',
+  'sale',
+  'tokens',
+  'Check out our new home',
   ".- %[%d+-%d+%] started!", -- battleground
 }
 
